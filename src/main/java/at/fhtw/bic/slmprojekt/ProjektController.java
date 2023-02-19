@@ -10,16 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProjektController {
 
+
     public static void main(String[] args) {
         SpringApplication.run(ProjektController.class, args);
     }
 
     @GetMapping("/grade/{number}")
-    public String getGrade(@PathVariable int number) {
-        if (number == 00) return "00:00 AM";
-        else if (number <= 11) return number + "AM";
-        else if (number >= 13) return number + "PM";
-        else if (number == 12) return "12:00 PM";
+    public String getGrade(@PathVariable double number) {
+        if (number == 00) return "It's 00:00 AM";
+        else if (number <= 11) return "It's" + number + "AM";
+        else if (number >= 13) return "It's" + number + "PM";
+        else if (number == 12) return "It's 12:00 PM";
         else return "Not definiert";
     }
 }
